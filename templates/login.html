@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Page</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #2c2c2c;
+            font-family: Arial, sans-serif;
+            transition: background-color 0.3s;
+        }
+
+        .login-container {
+            text-align: center;
+            background-color: #3d3d3d;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s;
+        }
+
+        button#loginButton {
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button#loginButton:hover {
+            background-color: #1f77c5;
+        }
+    </style>
+</head>
+<body>
+
+
+
+<div class="login-container">
+    <h1>Welcome to -insertname-</h1>
+    <p>Please log in to continue.</p>
+    <button id="loginButton">Login</button>
+</div>
+
+<script>
+    // Get a reference to the button element
+    const loginButton = document.getElementById("loginButton");
+
+    // Define the URL of your login page
+    const loginPageURL = "https://example.com/login";
+
+    // Add a click event listener to the button
+    loginButton.addEventListener("click", function() {
+        // Redirect to the login page when the button is clicked
+        window.location.href = loginPageURL;
+    });
+</script>
+
+</body>
+</html>
