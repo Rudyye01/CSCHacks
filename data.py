@@ -3,7 +3,7 @@ from canvasapi import Canvas
 # Canvas API URL
 API_URL = "https://canvas.pitt.edu/"
 # Canvas API key
-API_KEY = "13997~BxWpzCZPNT346UNptXA0i8PuSPVCmQpLkjNbRljIwnOU1nQITQeSEgIODjBBkiI2"
+API_KEY = ""
 
 # Initialize a new Canvas object
 canvas = Canvas(API_URL, API_KEY)
