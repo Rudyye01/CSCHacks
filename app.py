@@ -7,7 +7,7 @@ app = Flask(__name__)
 # Canvas API URL
 API_URL = "https://canvas.pitt.edu/"
 # Canvas API key
-API_KEY = ""
+API_KEY = "13997~3pNoc4YCBSWPQllErzLhjhunsyf7Z4fEVvbJhdIWCp1WQSPwRA8nJp9n9ic8AUmq"
 #Key and URL are hardcoded for now becasue we don't have the dev key, but later will have an Oauth2
 #section where we get use the login page to redirect to canvas that the user logs into
 #and canvas will send us an url with this API Key in it 
@@ -30,8 +30,8 @@ for course in courses:
     assignments = course.get_assignments(bucket = 'unsubmitted', order_by = 'due_at')
     for assignment in assignments:
         dueDate = assignment.due_at
-        dueDate = datetime.fromisoformat(dueDate)
-        todoList.append({"assName":assignment.name, '''"dueDate": dueDate,''' "className": course.name, "completed": False})
+        dueDate = [dueDate.day, dueDate.month, dueDate.year]
+        todoList.append({"assName":assignment.name, "dueDate": dueDate, "className": course.name, "completed": False})
 #loops over all active user courses then loops all assignments in that course and appends it to the list
 
 #function to sort the list of dict before passing it into the list.html
