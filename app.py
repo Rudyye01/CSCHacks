@@ -33,12 +33,9 @@ for course in courses:
         dueAt = assignment.due_at
         todoList.append({"assName":assignment.name, "dueDate": datetime.fromisoformat(dueAt).strftime('%b %d'), "className": course.name, "completed": False}) 
 #loops over all active user courses then loops all assignments in that course and appends it to the list
-print(todoList)
 
 assignmentList = sorted(todoList, key = lambda x:x['dueDate'])
 #sorts the list by assignment dueDate
-
-print(assignmentList)
 
 @app.route("/")#Default page
 def home():
