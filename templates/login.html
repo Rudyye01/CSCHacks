@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Login Page</title>
     <style>
@@ -9,28 +10,34 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            background-color: #0033A0; /* Pitt Blue */
+            background-color: rgb(40, 60, 140);
+            /* Pitt Blue */
             font-family: Arial, sans-serif;
             transition: background-color 0.3s;
         }
 
         .login-container {
             text-align: center;
-            background-color: #FFB81C; /* Pitt Gold */
+            background-color: #FFB81C;
+            /* Pitt Gold */
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
             transition: background-color 0.3s;
         }
 
-        h1, p {
-            color: #0033A0; /* Pitt Blue */
+        h1,
+        p {
+            color: rgb(40, 60, 140);
+            /* Pitt Blue */
         }
 
         button#loginButton {
             padding: 10px 20px;
-            background-color: #0033A0; /* Pitt Blue */
-            color: #FFB81C; /* Pitt Gold */
+            background-color: rgb(40, 60, 140);
+            /* Pitt Blue */
+            color: #FFB81C;
+            /* Pitt Gold */
             border: none;
             border-radius: 5px;
             font-size: 16px;
@@ -39,32 +46,35 @@
         }
 
         button#loginButton:hover {
-            background-color: #1F3F7D; /* Darker Pitt Blue on hover */
+            background-color: rgb(24, 38, 94);
+            /* Darker Pitt Blue on hover */
         }
     </style>
 </head>
+
 <body>
 
-<div class="login-container">
-    <h1>Welcome to ToDo w/Canvas</h1>
-    <p>Please log in to continue.</p>
-    <button id="loginButton">Login</button>
-</div>
+    <div class="login-container">
+        <h1>Welcome to ToDo w/Canvas</h1>
+        <p>Please log in to continue.</p>
+        <button id="loginButton">Login</button>
+    </div>
 
-<script>
-    // Get a reference to the button element
-    const loginButton = document.getElementById("loginButton");
+    <script>
+        // Get a reference to the button element
+        const loginButton = document.getElementById("loginButton");
 
-    // Define the URL of your login page
-    const loginPageURL = "/list";
-    //no redirect to canvas login in rn but once we have a dev key we can do the auth through them
+        // Define the URL of your login page
+        const loginPageURL = "/list";
+        //no redirect to canvas login in rn but once we have a dev key we can do the auth through them
 
-    // Add a click event listener to the button
-    loginButton.addEventListener("click", function() {
-        // Redirect to the login page when the button is clicked
-        window.location.href = loginPageURL;
-    });
-</script>
+        // Add a click event listener to the button
+        loginButton.addEventListener("click", function () {
+            // Redirect to the login page when the button is clicked
+            window.location.href = loginPageURL;
+        });
+    </script>
 
 </body>
+
 </html>
