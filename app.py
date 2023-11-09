@@ -29,14 +29,13 @@ todoList = []
 for course in courses:
     assignments = course.get_assignments(bucket = 'unsubmitted', order_by = 'due_at')
     for assignment in assignments:
-        dueDate = assignment.due_at
-        #dueDate = [dueDate.day, dueDate.month, dueDate.year]
-        todoList.append({"assName":assignment.name, "dueDate": dueDate, "className": course.name, "completed": False})
+        todoList.append({"assName":assignment.name, "dueDate": assignment.due_at, "className": course.name, "completed": False})
 #loops over all active user courses then loops all assignments in that course and appends it to the list
 
 #function to sort the list of dict before passing it into the list.html
-for assignment in todoList:
-    '''WIP'''
+#for assignments in todoList: 
+'''WIP'''
+    
 
 @app.route("/")#Default page
 def home():
@@ -44,7 +43,7 @@ def home():
 
 @app.route("/list")#the list display
 def main():
-    return render_template('list.html', assignments=todoList)#takes in the list of dicts we made, so the javascript can interact with it
+    return render_template('list-note.html', assignments=todoList)#takes in the list of dicts we made, so the javascript can interact with it
     #uses the render_template method, which is a built in method to the flask library to display
     #an html file that "we" made, this is where the javascript frontend gets called in our python program
 

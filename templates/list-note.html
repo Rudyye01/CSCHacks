@@ -6,7 +6,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #2c2c2c;
+            background-color: #0033A0;
             text-align: center;
             margin: 0;
             padding: 20px;
@@ -21,7 +21,7 @@
             padding: 24px;
             width: 77%;
             /* Right third of the page */
-            background-color: #464646;
+            background-color: #0033A0;
             border: 1px solid #e0e0e0;
             border-radius: 5px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -33,7 +33,7 @@
             width: 33%;
             /* Right third of the page */
             justify-content: flex-end;
-            background-color: #464646;
+            background-color: #0033A0;
             border: 1px solid #e0e0e0;
             border-radius: 5px;
             padding: 20px;
@@ -55,7 +55,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: #a5a4a4;
+            background-color: #0033A0;
             border: 1px solid #e0e0e0;
             border-radius: 5px;
             margin-bottom: 10px;
@@ -77,8 +77,8 @@
         }
 
         .checkbox.checked {
-            background-color: #2196F3;
-            border: 1px solid #2196F3;
+            background-color: #FFB81C;
+            border: 1px solid #FFB81C;
         }
 
         #notes-container {
@@ -122,14 +122,14 @@
     <div class="container">
 
         <div class="left">
-            <h1>Notes</h1>
+            <h1 style="color: #FFB81C;">Notes</h1>
             <div id="notes-container">
                 <button class="add-note" type="button">+</button>
             </div>
         </div>
 
         <div class="right">
-            <h1>Assignment List</h1>
+            <h1 style="color: #FFB81C;">Assignments</h1>
             <ul>
                 {% for assignment in assignments %}
                 <li class="{% if assignment.completed %}completed{% endif %}">
