@@ -104,7 +104,7 @@
             background: rgba(0, 0, 0, 0.1);
             border-radius: 10px;
             font-size: 120px;
-            color: rgba(0, 0, 0, 0.5);
+            color: #FFB81C;
             cursor: pointer;
             transition: background 0.2s;
         }
@@ -149,7 +149,7 @@
                         <div class="checkbox {% if assignment.completed %}checked{% endif %}" onclick="toggleCompleted(this)"></div>
                     </span>
                     <span>{{ assignment.assName }}</span>
-                    <span>{{ assignment.dueDate }}</span>
+                    <span>Due on {{ assignment.dueDate }}</span>
                 </div>
             </div>
         </li>
