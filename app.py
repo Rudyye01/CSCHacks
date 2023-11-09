@@ -37,9 +37,9 @@ for course in courses:
 assignmentList = sorted(todoList, key = lambda x:x['dueDate'])
 #sorts the list by assignment dueDate
 
-@app.route("/")#Default page
-def home():
-    return "Home"
+@app.route("/")#the login page, which doesn't do shit rn cause we don't have a dev key, theoretically it would do the Oauth2 redirection
+def login_page():
+    return render_template('login.html')
 
 @app.route("/list")#the list display
 def main():
@@ -47,6 +47,3 @@ def main():
     #uses the render_template method, which is a built in method to the flask library to display
     #an html file that "we" made, this is where the javascript frontend gets called in our python program
 
-@app.route("/login")#the login page, which doesn't do shit rn cause we don't have a dev key, theoretically it would do the Oauth2 redirection
-def login_page():
-    return render_template('login.html')
