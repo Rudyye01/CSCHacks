@@ -30,7 +30,7 @@ for course in courses:
     assignments = course.get_assignments(bucket = 'unsubmitted', order_by = 'due_at')
     for assignment in assignments:
         dueDate = assignment.due_at
-        dueDate = [dueDate.day, dueDate.month, dueDate.year]
+        #dueDate = [dueDate.day, dueDate.month, dueDate.year]
         todoList.append({"assName":assignment.name, "dueDate": dueDate, "className": course.name, "completed": False})
 #loops over all active user courses then loops all assignments in that course and appends it to the list
 
