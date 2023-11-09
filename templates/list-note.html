@@ -6,47 +6,48 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: rgb(40,60,140);
+            background-color: rgb(40, 60, 140);
             text-align: center;
             margin: 0;
             padding: 20px;
-            color: rgb(255, 184, 28); /* Pitt Gold for text color */
+            color: rgb(255, 184, 28);
+            /* Pitt Gold for text color */
         }
-    
+
         .container {
             display: flex;
         }
-    
+
         .left {
             padding: 24px;
-            width: 70%;
-            background-color: rgb(40,60,140);
-            border: 1px solid #e0e0e0;
+            width: 77%;
+            background-color: rgb(40, 60, 140);
             border-radius: 5px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             overflow-y: auto;
         }
-    
+
         .right {
             width: 45%;
             justify-content: flex-end;
-            background-color: rgb(40,60,140);
-            border: 1px solid #e0e0e0;
+            background-color: rgb(40, 60, 140);
+            border: 3px solid rgb(255, 184, 28);
             border-radius: 5px;
             padding: 20px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             overflow-y: auto;
         }
-    
+
         h1 {
-            color: rgb(255, 184, 28); /* Pitt Gold for heading color */
+            color: rgb(255, 184, 28);
+            /* Pitt Gold for heading color */
         }
-    
+
         ul {
             list-style-type: none;
             padding: 0;
         }
-    
+
         li {
             display: flex;
             justify-content: space-between;
@@ -57,12 +58,12 @@
             margin-bottom: 10px;
             padding: 10px;
         }
-    
+
         .completed {
             text-decoration: line-through;
-            color:#000000
+            color: #000000
         }
-    
+
         .checkbox {
             display: inline-block;
             width: 20px;
@@ -72,19 +73,19 @@
             margin-right: 10px;
             cursor: pointer;
         }
-    
+
         .checkbox.checked {
             background-color: #0033A0;
             border: 1px solid #0033A0;
         }
-    
+
         #notes-container {
             display: grid;
             grid-template-columns: repeat(auto-fill, 200px);
-            justify-content: flex-start;
+            justify-content: center;
             gap: 24px;
         }
-    
+
         .note {
             height: 200px;
             box-sizing: border-box;
@@ -95,9 +96,10 @@
             resize: none;
             font-family: sans-serif;
             font-size: 16px;
-            background-color: rgb(255, 184, 28); /* Pitt Gold for note background color */
+            background-color: rgb(255, 184, 28);
+            /* Pitt Gold for note background color */
         }
-    
+
         .add-note {
             height: 200px;
             border: none;
@@ -109,21 +111,23 @@
             cursor: pointer;
             transition: background 0.2s;
         }
-    
+
         .add-note:hover {
             background: rgba(0, 0, 0, 0.2);
         }
-    
+
         .assignment-header {
             text-align: center;
-            color: rgb(40,60,140); /* Pitt Blue for heading color */
+            color: rgb(40, 60, 140);
+            /* Pitt Blue for heading color */
         }
-    
+
         .assignment-details {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            color: rgb(40,60,140); /* Pitt Blue for text color */
+            color: rgb(40, 60, 140);
+            /* Pitt Blue for text color */
         }
     </style>
 </head>
@@ -142,19 +146,20 @@
             <h1 style="color: #FFB81C;">Assignments</h1>
             <ul>
                 {% for assignment in assignments %}
-        <li class="{% if assignment.completed %}completed{% endif %}">
-            <div class="assignment-header">
-                <h6>{{ assignment.className }}</h6>
-                <div class="assignment-details">
-                    <span>
-                        <div class="checkbox {% if assignment.completed %}checked{% endif %}" onclick="toggleCompleted(this)"></div>
-                    </span>
-                    <span>{{ assignment.assName }}</span>
-                    <span>Due on {{ assignment.dueDate }}</span>
-                </div>
-            </div>
-        </li>
-        {% endfor %}
+                <li class="{% if assignment.completed %}completed{% endif %}">
+                    <div class="assignment-header">
+                        <h6>{{ assignment.className }}</h6>
+                        <div class="assignment-details">
+                            <span>
+                                <div class="checkbox {% if assignment.completed %}checked{% endif %}"
+                                    onclick="toggleCompleted(this)"></div>
+                            </span>
+                            <span>{{ assignment.assName }}</span>
+                            <span>Due on {{ assignment.dueDate }}</span>
+                        </div>
+                    </div>
+                </li>
+                {% endfor %}
             </ul>
         </div>
     </div>
