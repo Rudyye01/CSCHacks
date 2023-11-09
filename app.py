@@ -23,19 +23,22 @@ courses = user.get_courses()
 #Initalizes a paginated list(you can itterate through it, but can't size it), of all ACTIVE courses the user has
 
 todoList = []
+assignmentList = []
 #Initializes an empty list that we use forloops to fill
 #This will end up being a list of dictionaries, where each dictionary is an assignment
 
 for course in courses:
-    assignments = course.get_assignments(bucket = 'unsubmitted', order_by = 'due_at')
+    assignments = course.get_assignments(bucket = 'upcoming', order_by = 'due_at')
     for assignment in assignments:
-        todoList.append({"assName":assignment.name, "dueDate": assignment.due_at, "className": course.name, "completed": False})
+        dueAt = assignment.due_at
+        todoList.append({"assName":assignment.name, "dueDate": datetime.fromisoformat(dueAt).strftime('%b %d'), "className": course.name, "completed": False}) 
 #loops over all active user courses then loops all assignments in that course and appends it to the list
+print(todoList)
 
-#function to sort the list of dict before passing it into the list.html
-#for assignments in todoList: 
-'''WIP'''
-    
+assignmentList = sorted(todoList, key = lambda x:x['dueDate'])
+#sorts the list by assignment dueDate
+
+print(assignmentList)
 
 @app.route("/")#Default page
 def home():
@@ -43,7 +46,7 @@ def home():
 
 @app.route("/list")#the list display
 def main():
-    return render_template('list-note.html', assignments=todoList)#takes in the list of dicts we made, so the javascript can interact with it
+    return render_template('list-note.html', assignments=assignmentList)#takes in the list of dicts we made, so the javascript can interact with it
     #uses the render_template method, which is a built in method to the flask library to display
     #an html file that "we" made, this is where the javascript frontend gets called in our python program
 
