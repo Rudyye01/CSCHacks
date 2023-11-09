@@ -10,28 +10,25 @@
             text-align: center;
             margin: 0;
             padding: 20px;
+            color: #FFB81C; /* Pitt Gold for text color */
         }
-
+    
         .container {
             display: flex;
-            /* Start on the top right of the page */
         }
-
+    
         .left {
             padding: 24px;
-            width: 77%;
-            /* Right third of the page */
+            width: 70%;
             background-color: #0033A0;
             border: 1px solid #e0e0e0;
             border-radius: 5px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             overflow-y: auto;
-            /* Enable vertical scrolling if the list is too long */
         }
-
+    
         .right {
-            width: 33%;
-            /* Right third of the page */
+            width: 45%;
             justify-content: flex-end;
             background-color: #0033A0;
             border: 1px solid #e0e0e0;
@@ -39,18 +36,17 @@
             padding: 20px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             overflow-y: auto;
-            /* Enable vertical scrolling if the list is too long */
         }
-
+    
         h1 {
-            color: #c4c4c4;
+            color: #FFB81C; /* Pitt Gold for heading color */
         }
-
+    
         ul {
             list-style-type: none;
             padding: 0;
         }
-
+    
         li {
             display: flex;
             justify-content: space-between;
@@ -61,11 +57,11 @@
             margin-bottom: 10px;
             padding: 10px;
         }
-
+    
         .completed {
             text-decoration: line-through;
         }
-
+    
         .checkbox {
             display: inline-block;
             width: 20px;
@@ -75,19 +71,19 @@
             margin-right: 10px;
             cursor: pointer;
         }
-
+    
         .checkbox.checked {
             background-color: #FFB81C;
             border: 1px solid #FFB81C;
         }
-
+    
         #notes-container {
             display: grid;
             grid-template-columns: repeat(auto-fill, 200px);
             justify-content: flex-start;
             gap: 24px;
         }
-
+    
         .note {
             height: 200px;
             box-sizing: border-box;
@@ -98,8 +94,9 @@
             resize: none;
             font-family: sans-serif;
             font-size: 16px;
+            background-color: #FFB81C; /* Pitt Gold for note background color */
         }
-
+    
         .add-note {
             height: 200px;
             border: none;
@@ -111,9 +108,21 @@
             cursor: pointer;
             transition: background 0.2s;
         }
-
+    
         .add-note:hover {
             background: rgba(0, 0, 0, 0.2);
+        }
+    
+        .assignment-header {
+            text-align: center;
+            color: #FFB81C; /* Pitt Gold for heading color */
+        }
+    
+        .assignment-details {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: #FFB81C; /* Pitt Gold for text color */
         }
     </style>
 </head>
@@ -132,14 +141,19 @@
             <h1 style="color: #FFB81C;">Assignments</h1>
             <ul>
                 {% for assignment in assignments %}
-                <li class="{% if assignment.completed %}completed{% endif %}">
-                    <div class="checkbox {% if assignment.completed %}checked{% endif %}"
-                        onclick="toggleCompleted(this)">
-                    </div>
-                    <span>{{ assignment.assName}} - {{ assignment.className }}</span>
+        <li class="{% if assignment.completed %}completed{% endif %}">
+            <div class="assignment-header">
+                <h6>{{ assignment.className }}</h6>
+                <div class="assignment-details">
+                    <span>
+                        <div class="checkbox {% if assignment.completed %}checked{% endif %}" onclick="toggleCompleted(this)"></div>
+                    </span>
+                    <span>{{ assignment.assName }}</span>
                     <span>{{ assignment.dueDate }}</span>
-                </li>
-                {% endfor %}
+                </div>
+            </div>
+        </li>
+        {% endfor %}
             </ul>
         </div>
     </div>
